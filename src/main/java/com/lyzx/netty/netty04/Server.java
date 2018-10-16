@@ -11,7 +11,7 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 
 /**
  * @author hero.li
- * netty编解码
+ * netty编解码之Marshalling
  */
 public class Server {
 
@@ -30,11 +30,15 @@ public class Server {
                 .childOption(ChannelOption.SO_KEEPALIVE,Boolean.TRUE)
                 .childHandler(new ChannelInitializer<SocketChannel>(){
                     @Override
-                    protected void initChannel(SocketChannel ch) throws Exception {
-                        ChannelHandler[] arr = {MarshallingCodeCFactory.buildMarshallingDecoder(),
-                                                MarshallingCodeCFactory.buildMarshallingEncoder(),
-                                                new ServerHandler()};
-                        ch.pipeline().addLast(arr);
+                    protected void initChannel(SocketChannel ch) throws Exception{
+//                        ChannelHandler[] arr = {MarshallingCodeCFactory.buildMarshallingEncoder(),
+//                                                MarshallingCodeCFactory.buildMarshallingDecoder(),
+//                                                new ServerHandler()};
+//                        ch.pipeline().addLast(arr);
+
+                        ch.pipeline().addLast(MarshallingCodeCFactory.buildMarshallingDecoder());
+                        ch.pipeline().addLast(MarshallingCodeCFactory.buildMarshallingEncoder());
+                        ch.pipeline().addLast(new ServerHandler());
                     }
                 });
 
