@@ -1,2 +1,7 @@
 JvisualVM的用法
-Reactor线程组
+Reactor线程组（netty的核心）
+Netty的Ractor模型
+高性能网络编程
+
+为什么java序列化后码流很大而protobuff比较下小
+ java中int栈4个字节，java自带的序列化工具对int=1也占4个字节，其余的会根据具体的长度做序列化
