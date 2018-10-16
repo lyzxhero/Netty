@@ -1,4 +1,4 @@
-package com.lyzx.netty.netty;
+package com.lyzx.netty.netty02;
 
 import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
@@ -26,7 +26,7 @@ public class ServerHandler extends ChannelInboundHandlerAdapter {
         //ctx.write并不会直接把数据写入到缓冲区等到调用channelReadComplete里面的ctx.flush()
         //的时候再把数写入到SocketChannel
         String datetime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss:SSS"));
-        ByteBuf byteBuf = Unpooled.copiedBuffer(datetime.getBytes("UTF-8"));
+        ByteBuf byteBuf = Unpooled.copiedBuffer((datetime+"$$_$$").getBytes("UTF-8"));
         ctx.writeAndFlush(byteBuf);
         System.out.println("server:channelRead 通道可读结束");
     }
