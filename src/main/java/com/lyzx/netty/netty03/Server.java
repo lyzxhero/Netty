@@ -1,18 +1,14 @@
-package com.lyzx.netty.netty02;
+package com.lyzx.netty.netty03;
 
-import io.netty.bootstrap.Bootstrap;
 import io.netty.bootstrap.ServerBootstrap;
-import io.netty.buffer.ByteBuf;
-import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelFuture;
+import io.netty.channel.ChannelHandler;
 import io.netty.channel.ChannelInitializer;
 import io.netty.channel.ChannelOption;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
-import io.netty.channel.socket.nio.NioSocketChannel;
-import io.netty.handler.codec.DelimiterBasedFrameDecoder;
-import org.junit.Test;
+import io.netty.handler.codec.FixedLengthFrameDecoder;
 
 /**
  * @author hero.li
@@ -28,11 +24,15 @@ import org.junit.Test;
  *      只需要在客户端和服务端的消息过滤器上加上DelimiterBasedFrameDecoder的实现即可
  *      注意:在发送消息时就需要加上分隔符(客户端和服务端都要加)
  * 2、消息定长
+ *      定义每一条信息都一样长，比如64个字符，如果某一条消息的大小不足64字符就手动补齐到64字符
+ *      注意是手动补齐，如果不补齐那么久等到channel写到64个字符时发送出去
+ *      还有一点要注意下写数据时注意用WriteAndFlush
+ *
  * 3、自定义协议，报文头和报文体，其中报文头记录报文体的长度
  */
-public class Netty02 {
-    @Test
-    public void nettyServer() throws InterruptedException{
+public class Server {
+
+    public static void main(String[] args) throws InterruptedException {
         //开启两个线程组，一个用于接受客户端的请求   另一个用于异步的网络IO的读写
         NioEventLoopGroup bossGroup = new NioEventLoopGroup();
         NioEventLoopGroup workerGroup = new NioEventLoopGroup();
@@ -44,14 +44,12 @@ public class Netty02 {
         b.group(bossGroup,workerGroup)
                 .channel(NioServerSocketChannel.class)
                 .option(ChannelOption.SO_BACKLOG,1024)
-                .childOption(ChannelOption.SO_KEEPALIVE,Boolean.FALSE)
+                .childOption(ChannelOption.SO_KEEPALIVE,Boolean.TRUE)
                 .childHandler(new ChannelInitializer<SocketChannel>(){
                     @Override
-                    protected void initChannel(SocketChannel socketChannel) throws Exception {
-                        //以$$_$$为分隔符
-                        ByteBuf delimiter = Unpooled.copiedBuffer("$$_$$".getBytes("UTF-8"));
-                        socketChannel.pipeline().addLast(new DelimiterBasedFrameDecoder(1024,delimiter));
-                        socketChannel.pipeline().addLast(new ServerHandler());
+                    protected void initChannel(SocketChannel ch) throws Exception {
+                        ChannelHandler[] arr = {new FixedLengthFrameDecoder(64),new ServerHandler()};
+                        ch.pipeline().addLast(arr);
                     }
                 });
 
@@ -62,26 +60,5 @@ public class Netty02 {
         //优雅的关闭线程组
         bossGroup.shutdownGracefully();
         workerGroup.shutdownGracefully();
-    }
-
-    @Test
-    public void nettyClient() throws InterruptedException {
-        NioEventLoopGroup group = new NioEventLoopGroup();
-        Bootstrap b = new Bootstrap();
-        b.group(group)
-                .channel(NioSocketChannel.class)
-                .option(ChannelOption.TCP_NODELAY,true)
-                .handler(new ChannelInitializer<SocketChannel>() {
-                    @Override
-                    protected void initChannel(SocketChannel ch) throws Exception{
-                        ByteBuf delimiter = Unpooled.copiedBuffer("$$_$$".getBytes("UTF-8"));
-                        ch.pipeline().addLast(new DelimiterBasedFrameDecoder(1024,delimiter));
-                        ch.pipeline().addLast(new ClientHandler());
-                    }
-                });
-
-        ChannelFuture f = b.connect("127.0.0.1", 9988).sync();
-        f.channel().closeFuture().sync();
-        group.shutdownGracefully();
     }
 }
