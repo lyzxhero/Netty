@@ -21,29 +21,14 @@ public class Client {
                 .handler(new ChannelInitializer<SocketChannel>(){
                     @Override
                     protected void initChannel(SocketChannel ch) throws Exception{
-//                        ChannelHandler[] arr = {MarshallingCodeCFactory.buildMarshallingDecoder(),
-//                                                MarshallingCodeCFactory.buildMarshallingEncoder(),
-//                                                new ClientHandler()};
-//                        ch.pipeline().addLast(arr);
-
-                        ch.pipeline().addLast(MarshallingCodeCFactory.buildMarshallingDecoder());
-                        ch.pipeline().addLast(MarshallingCodeCFactory.buildMarshallingEncoder());
-                        ch.pipeline().addLast(new ClientHandler());
+                            ChannelHandler[] arr = {MarshallingCodeCFactory.marshallingDecoder(),
+                                                    MarshallingCodeCFactory.marshallingEncoder(),
+                                                    new ClientHandler()};
+                            ch.pipeline().addLast(arr);
                     }
                 });
         ChannelFuture f = b.connect("127.0.0.1", 9988).sync();
-
-
-        for(int i=0;i<10;i++){
-            NettyRequest req = new NettyRequest();
-            req.setId((long)i);
-            req.setMsg("data_"+i);
-            f.channel().writeAndFlush(req);
-            System.out.println("..."+req);
-        }
-
         f.channel().closeFuture().sync();
         group.shutdownGracefully();
     }
-
 }

@@ -31,14 +31,14 @@ public class Server {
                 .childHandler(new ChannelInitializer<SocketChannel>(){
                     @Override
                     protected void initChannel(SocketChannel ch) throws Exception{
-//                        ChannelHandler[] arr = {MarshallingCodeCFactory.buildMarshallingEncoder(),
-//                                                MarshallingCodeCFactory.buildMarshallingDecoder(),
-//                                                new ServerHandler()};
-//                        ch.pipeline().addLast(arr);
+                        ChannelHandler[] arr = {MarshallingCodeCFactory.marshallingDecoder(),
+                                                MarshallingCodeCFactory.marshallingEncoder(),
+                                                new ServerHandler()};
+                        ch.pipeline().addLast(arr);
 
-                        ch.pipeline().addLast(MarshallingCodeCFactory.buildMarshallingDecoder());
-                        ch.pipeline().addLast(MarshallingCodeCFactory.buildMarshallingEncoder());
-                        ch.pipeline().addLast(new ServerHandler());
+//                        ch.pipeline().addLast(MarshallingCodeCFactory.marshallingDecoder());
+//                        ch.pipeline().addLast(MarshallingCodeCFactory.marshallingEncoder());
+//                        ch.pipeline().addLast(new ServerHandler());
                     }
                 });
 

@@ -15,23 +15,12 @@ public class ServerHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelRead(ChannelHandlerContext ctx, Object msg) throws Exception {
         System.out.println("server:channelRead____通道可读开始");
+        NettyRequest nr = (NettyRequest)msg;
+        System.out.println("server:收到的消息____:"+nr);
 
-
-//        ByteBuf buf = (ByteBuf)msg;
-//        byte[] bytes = new byte[buf.readableBytes()];
-//        buf.readBytes(bytes);
-//        System.out.println("server 收到的信息:"+new String(bytes));
-//        String datetime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss:SSS"));
-//        ctx.channel().writeAndFlush(Unpooled.copiedBuffer(datetime.getBytes()));
-
-
-//        NettyRequest nr = (NettyRequest)msg;
-//        System.out.println("server:收到的消息____:"+nr);
-//
-//        String datetime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss:SSS"));
-//        nr.setMsg(datetime);
-//        ctx.channel().writeAndFlush(nr);
-
+        String datetime = LocalDateTime.now().format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss:SSS"));
+        nr.setMsg(datetime);
+        ctx.channel().writeAndFlush(nr);
         System.out.println("server:channelRead____通道可读结束");
     }
 

@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b711074f-9cfc-413a-bce6-1ab96ede789b" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_marshalling_jboss_marshalling_serial_1_3_0_CR9.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_marshalling_jboss_marshalling_1_3_0_CR9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_marshalling_jboss_marshalling_2_0_6_Final.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_marshalling_jboss_marshalling_serial_1_3_0_CR9.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_jboss_marshalling_jboss_marshalling_serial_2_0_6_Final.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/1.txt" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/Netty.iml" beforeDir="false" afterPath="$PROJECT_DIR$/Netty.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/current.pptx" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/lyzx/netty/netty04/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lyzx/netty/netty04/Client.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/lyzx/netty/netty04/ClientHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/lyzx/netty/netty04/ClientHandler.java" afterDir="false" />
@@ -16,7 +19,6 @@
       <change beforePath="$PROJECT_DIR$/target/classes/com/lyzx/netty/netty04/ClientHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lyzx/netty/netty04/ClientHandler.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/lyzx/netty/netty04/MarshallingCodeCFactory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lyzx/netty/netty04/MarshallingCodeCFactory.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/lyzx/netty/netty04/Server$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lyzx/netty/netty04/Server$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/com/lyzx/netty/netty04/Server.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lyzx/netty/netty04/Server.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/com/lyzx/netty/netty04/ServerHandler.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/com/lyzx/netty/netty04/ServerHandler.class" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
@@ -30,56 +32,71 @@
     <session id="198453206">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="1" />
+          <entry key="project.closed" value="4" />
+          <entry key="project.open.time.21" value="1" />
+          <entry key="project.open.time.22" value="1" />
           <entry key="project.open.time.33" value="1" />
+          <entry key="project.open.time.34" value="1" />
           <entry key="project.open.time.4" value="1" />
-          <entry key="project.opened" value="2" />
+          <entry key="project.opened" value="5" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
           <entry key="class" value="1" />
-          <entry key="java" value="78" />
-          <entry key="txt" value="4" />
-          <entry key="xml" value="5" />
+          <entry key="gitignore" value="1" />
+          <entry key="java" value="90" />
+          <entry key="txt" value="5" />
+          <entry key="xml" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
           <entry key="CLASS" value="1" />
-          <entry key="JAVA" value="78" />
-          <entry key="PLAIN_TEXT" value="4" />
-          <entry key="XML" value="5" />
+          <entry key="Git file" value="1" />
+          <entry key="JAVA" value="90" />
+          <entry key="PLAIN_TEXT" value="5" />
+          <entry key="XML" value="6" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
           <entry key="dummy" value="7" />
-          <entry key="java" value="3326" />
+          <entry key="gitignore" value="25" />
+          <entry key="java" value="3370" />
           <entry key="txt" value="137" />
-          <entry key="xml" value="5" />
+          <entry key="xml" value="27" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="3326" />
+          <entry key="Git file" value="25" />
+          <entry key="JAVA" value="3370" />
           <entry key="PLAIN_TEXT" value="144" />
-          <entry key="XML" value="5" />
+          <entry key="XML" value="27" />
         </counts>
       </usages-collector>
     </session>
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/lyzx/netty/netty04/Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="309">
-              <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+            <state relative-caret-position="300">
+              <caret line="12" column="21" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
               <folding>
-                <element signature="e#727#1511#0" expanded="true" />
-                <element signature="e#1510#1511#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="125">
+              <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -87,8 +104,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/pom.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="700">
-              <caret line="28" column="20" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
+            <state relative-caret-position="875">
+              <caret line="35" selection-start-line="35" selection-end-line="35" />
             </state>
           </provider>
         </entry>
@@ -96,8 +113,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/lyzx/netty/netty04/ClientHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="9" column="10" lean-forward="true" selection-start-line="9" selection-start-column="10" selection-end-line="15" selection-end-column="11" />
+            <state relative-caret-position="425">
+              <caret line="18" selection-start-line="18" selection-end-line="18" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -108,11 +125,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/lyzx/netty/netty04/Server.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="31" column="29" lean-forward="true" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="29" />
-              <folding>
-                <element signature="e#1941#1942#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="850">
+              <caret line="41" column="21" selection-start-line="41" selection-start-column="21" selection-end-line="41" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -120,8 +134,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/lyzx/netty/netty04/MarshallingCodeCFactory.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="20" column="14" lean-forward="true" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
+            <state relative-caret-position="775">
+              <caret line="39" column="7" selection-start-line="39" selection-start-column="7" selection-end-line="39" selection-end-column="7" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -132,8 +146,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/lyzx/netty/netty04/ServerHandler.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="300">
-              <caret line="17" selection-start-line="17" selection-end-line="17" />
+            <state relative-caret-position="200">
+              <caret line="13" column="57" selection-start-line="13" selection-start-column="57" selection-end-line="13" selection-end-column="57" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -180,12 +194,15 @@
         <option value="$PROJECT_DIR$/src/main/java/com/lyzx/netty/netty03/Server.java" />
         <option value="$PROJECT_DIR$/q.txt" />
         <option value="$PROJECT_DIR$/src/main/java/com/lyzx/netty/netty04/NettyRequest.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/lyzx/netty/netty04/ServerHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lyzx/netty/netty5/Req.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lyzx/netty/netty5/Client.java" />
         <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/lyzx/netty/netty04/ServerHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lyzx/netty/netty04/MarshallingCodeCFactory.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lyzx/netty/netty04/Server.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lyzx/netty/netty04/ClientHandler.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/lyzx/netty/netty04/Client.java" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -206,8 +223,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -250,29 +265,28 @@
               <item name="netty" type="462c0819:PsiDirectoryNode" />
               <item name="netty04" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="Netty" type="b2602c69:ProjectViewProjectNode" />
-              <item name="External Libraries" type="cb654da1:ExternalLibrariesNode" />
-            </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539692807729" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1539745246099" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../t1" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\code\Netty\src\main\java\com\lyzx\netty\netty5" />
       <recent name="D:\code\Netty\src\main\java\com\lyzx\netty\netty04" />
       <recent name="D:\code\Netty\src\main\java\com\lyzx\netty\nettyX" />
       <recent name="D:\code\Netty\src\main\java\com\lyzx\netty\netty03" />
       <recent name="D:\code\Netty\src\main\java\com\lyzx\netty\netty02" />
-      <recent name="D:\code\Netty\src\main\java\com\lyzx\netty\netty" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -294,6 +308,19 @@
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="com.lyzx.netty.netty04.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Client (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.lyzx.netty.netty5.Client" />
+      <module name="Netty" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.lyzx.netty.netty5.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -327,49 +354,33 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Server" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="com.lyzx.netty.netty03.Server" />
+    <configuration name="Server (2)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.lyzx.netty.netty5.Server" />
       <module name="Netty" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.lyzx.netty.netty03.*" />
+          <option name="PATTERN" value="com.lyzx.netty.netty5.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Server.nettyClient" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="Netty" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.lyzx.netty.netty03.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.lyzx.netty.netty03" />
-      <option name="MAIN_CLASS_NAME" value="com.lyzx.netty.netty03.Server" />
-      <option name="METHOD_NAME" value="nettyClient" />
-      <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.Server.nettyClient" />
-      <item itemvalue="Application.Server" />
       <item itemvalue="Application.Client" />
       <item itemvalue="Application.Server (1)" />
       <item itemvalue="Application.Client (1)" />
+      <item itemvalue="Application.Server (2)" />
+      <item itemvalue="Application.Client (2)" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Client (1)" />
         <item itemvalue="Application.Server (1)" />
+        <item itemvalue="Application.Client (2)" />
+        <item itemvalue="Application.Server (2)" />
         <item itemvalue="Application.Client" />
-        <item itemvalue="Application.Server" />
-        <item itemvalue="JUnit.Server.nettyClient" />
       </list>
     </recent_temporary>
   </component>
@@ -384,7 +395,10 @@
       <option name="presentableId" value="Default" />
       <updated>1539656764667</updated>
       <workItem from="1539656769040" duration="31225000" />
-      <workItem from="1539692652116" duration="144000" />
+      <workItem from="1539692652116" duration="248000" />
+      <workItem from="1539742479922" duration="2394000" />
+      <workItem from="1539744965707" duration="281000" />
+      <workItem from="1539745288540" duration="105000" />
     </task>
     <servers />
   </component>
@@ -421,7 +435,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="31369000" />
+    <option name="totallyTimeSpent" value="34253000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1358" y="-129" width="1936" height="1056" extended-state="6" />
@@ -432,15 +446,15 @@
       <window_info id="Capture Tool" order="2" />
       <window_info id="Favorites" order="3" side_tool="true" />
       <window_info id="Image Layers" order="4" />
-      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.16577825" />
+      <window_info active="true" content_ui="combo" id="Project" order="5" visible="true" weight="0.21268657" />
       <window_info id="Structure" order="6" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Version Control" order="0" />
-      <window_info anchor="bottom" id="Terminal" order="1" weight="0.19435397" />
+      <window_info anchor="bottom" id="Terminal" order="1" weight="0.4723127" />
       <window_info anchor="bottom" id="Event Log" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="3" show_stripe_button="false" />
       <window_info anchor="bottom" id="Message" order="4" />
-      <window_info anchor="bottom" id="Find" order="5" />
-      <window_info anchor="bottom" id="Run" order="6" visible="true" weight="0.33876222" />
+      <window_info anchor="bottom" id="Find" order="5" weight="0.32899022" />
+      <window_info anchor="bottom" id="Run" order="6" weight="0.27687296" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.5537459" />
       <window_info anchor="bottom" id="Messages" order="8" weight="0.38870794" />
       <window_info anchor="bottom" id="Cvs" order="9" weight="0.25" />
@@ -617,13 +631,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/q.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="75">
-          <caret line="3" column="7" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lyzx/netty/netty04/NettyRequest.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="125">
@@ -649,27 +656,41 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/pom.xml">
+    <entry file="file://$PROJECT_DIR$/q.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="700">
-          <caret line="28" column="20" selection-start-line="28" selection-start-column="20" selection-end-line="28" selection-end-column="20" />
+        <state relative-caret-position="75">
+          <caret line="3" column="7" selection-start-line="3" selection-start-column="7" selection-end-line="3" selection-end-column="7" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lyzx/netty/netty04/ServerHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lyzx/netty/netty5/MarshallingCodeCFactory.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lyzx/netty/netty5/Req.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lyzx/netty/netty5/Resp.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lyzx/netty/netty5/ServerHandler.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lyzx/netty/netty5/ClientHandler.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lyzx/netty/netty5/Server.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lyzx/netty/netty5/Client.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lyzx/netty/netty04/Client.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="300">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
+          <caret line="12" column="21" selection-start-line="12" selection-start-column="21" selection-end-line="12" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lyzx/netty/netty04/MarshallingCodeCFactory.java">
+    <entry file="file://$PROJECT_DIR$/pom.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="20" column="14" lean-forward="true" selection-start-line="20" selection-start-column="14" selection-end-line="20" selection-end-column="14" />
+        <state relative-caret-position="875">
+          <caret line="35" selection-start-line="35" selection-end-line="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lyzx/netty/netty04/ClientHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="18" selection-start-line="18" selection-end-line="18" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -678,32 +699,35 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/lyzx/netty/netty04/Server.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="259">
-          <caret line="31" column="29" lean-forward="true" selection-start-line="31" selection-start-column="29" selection-end-line="31" selection-end-column="29" />
-          <folding>
-            <element signature="e#1941#1942#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="850">
+          <caret line="41" column="21" selection-start-line="41" selection-start-column="21" selection-end-line="41" selection-end-column="21" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lyzx/netty/netty04/ClientHandler.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lyzx/netty/netty04/MarshallingCodeCFactory.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="9" column="10" lean-forward="true" selection-start-line="9" selection-start-column="10" selection-end-line="15" selection-end-column="11" />
+        <state relative-caret-position="775">
+          <caret line="39" column="7" selection-start-line="39" selection-start-column="7" selection-end-line="39" selection-end-column="7" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/lyzx/netty/netty04/Client.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/lyzx/netty/netty04/ServerHandler.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="309">
-          <caret line="35" lean-forward="true" selection-start-line="35" selection-end-line="35" />
+        <state relative-caret-position="200">
+          <caret line="13" column="57" selection-start-line="13" selection-start-column="57" selection-end-line="13" selection-end-column="57" />
           <folding>
-            <element signature="e#727#1511#0" expanded="true" />
-            <element signature="e#1510#1511#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="125">
+          <caret line="5" column="10" selection-start-line="5" selection-start-column="10" selection-end-line="5" selection-end-column="10" />
         </state>
       </provider>
     </entry>
