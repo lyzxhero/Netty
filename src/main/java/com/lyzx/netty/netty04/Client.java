@@ -9,7 +9,6 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 
-
 public class Client {
 
     public static void main(String[] args) throws InterruptedException {
@@ -26,6 +25,7 @@ public class Client {
                                                     new ClientHandler()};
                             ch.pipeline().addLast(arr);
                     }
+
                 });
         ChannelFuture f = b.connect("127.0.0.1", 9988).sync();
         f.channel().closeFuture().sync();
