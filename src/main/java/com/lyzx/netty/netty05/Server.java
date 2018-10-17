@@ -1,4 +1,4 @@
-package com.lyzx.netty.netty04;
+package com.lyzx.netty.netty05;
 
 import io.netty.bootstrap.ServerBootstrap;
 import io.netty.channel.ChannelFuture;
@@ -8,16 +8,24 @@ import io.netty.channel.ChannelOption;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
+import io.netty.handler.timeout.ReadTimeoutHandler;
 
 /**
  * @author hero.li
- * netty编解码之Marshalling
- * 前面讲了netty解决拆包粘包的问题
- * 我们发现拆包粘包问题的解决都只是解决netty发送字符串的情况
- * 在企业及开发中很少有直接使用字符串的，一般都有定义好的消息体，这个消息体一定对应实体类
- * 如果要传送实体类那么久一定要对实体类做序列化
- * (序列化就是把文件或者内存中的数据结构转换为字节数组以便存储或在网路传输)
- * 今天就介绍一下jboss的marshalling序列化框架
+ * netty的通信方式
+ * 1 、使用长连接通道不断开的形式进行通信，也就是服务器和客户端的通道一直处于开启状态，
+ *      适用于服务器性能足够好,并且客户端数量也比较少的情况
+ *
+ * 2 、一次性批量提交数据，采用短连接方式。也就是我们会把数据保存在本地，
+ *   当数据量达到临界值时进行一次性批量提交，又或者根据定时任务轮询提交，这种情况弊端是做不到实时性传输，
+ *   适用于实时性不高的应用程序
+ *
+ * 3 、我们可以使用一种特殊的长连接，在指定某一时间之内，服务器与某台客户端没有任何通信，则断开连接。
+ *     下次连接则是客户端向服务器发送请求的时候，再次建立连接。需要考虑2个因素：
+ *          (1) 如何在超时（即服务器和客户端没有任何通信）后关闭通道？关闭通道后我们又如何再次建立连接？
+ *                  netty帮我们实现了超时断开的功能，当客户端再次连接服务器时建立连接
+ *          (2) 客户端宕机时，我们无需考虑，下次客户端重启之后我们就可以与服务器建立连接，但是服务器宕机时，我们的客户端如何与服务器进行连接呢？
+ *                  连接N次后如果服务器连接不上，则表示服务器宕机，那么客户端等待指定的时间后再尝试连接
  */
 public class Server{
 
@@ -39,10 +47,9 @@ public class Server{
                     protected void initChannel(SocketChannel ch) throws Exception{
                         ChannelHandler[] arr = {MarshallingCodeCFactory.marshallingDecoder(),
                                                 MarshallingCodeCFactory.marshallingEncoder(),
+                                                new ReadTimeoutHandler(5),
                                                 new ServerHandler()};
                         ch.pipeline().addLast(arr);
-
-
                     }
                 });
 
