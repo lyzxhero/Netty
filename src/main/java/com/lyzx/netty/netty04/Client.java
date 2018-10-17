@@ -29,5 +29,9 @@ public class Client {
         ChannelFuture f = b.connect("127.0.0.1", 9988).sync();
         f.channel().closeFuture().sync();
         group.shutdownGracefully();
+
+
+
+
     }
 }
