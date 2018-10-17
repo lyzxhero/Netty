@@ -12,8 +12,14 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 /**
  * @author hero.li
  * netty编解码之Marshalling
+ * 前面讲了netty解决拆包粘包的问题
+ * 我们发现拆包粘包问题的解决都只是解决netty发送字符串的情况
+ * 在企业及开发中很少有直接使用字符串的，一般都有定义好的消息体，这个消息体一定对应实体类
+ * 如果要传送实体类那么久一定要对实体类做序列化
+ * (序列化就是把文件或者内存中的数据结构转换为字节数组以便存储或在网路传输)
+ * 今天就介绍一下jboss的marshalling序列化框架
  */
-public class Server {
+public class Server{
 
     public static void main(String[] args) throws InterruptedException {
         //开启两个线程组，一个用于接受客户端的请求   另一个用于异步的网络IO的读写
@@ -35,10 +41,6 @@ public class Server {
                                                 MarshallingCodeCFactory.marshallingEncoder(),
                                                 new ServerHandler()};
                         ch.pipeline().addLast(arr);
-
-//                        ch.pipeline().addLast(MarshallingCodeCFactory.marshallingDecoder());
-//                        ch.pipeline().addLast(MarshallingCodeCFactory.marshallingEncoder());
-//                        ch.pipeline().addLast(new ServerHandler());
                     }
                 });
 

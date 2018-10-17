@@ -3,8 +3,8 @@ package com.lyzx.netty.netty04;
 import java.io.Serializable;
 
 public class NettyRequest implements Serializable {
-
     private Long id;
+
     private int code;
     private String msg;
 
