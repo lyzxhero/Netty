@@ -11,7 +11,8 @@ import io.netty.channel.socket.nio.NioServerSocketChannel;
 
 /**
  * @author hero.li
- * netty编解码之Marshalling
+ * netty编解码之Marsharling
+ * 注意事项:Marsharling用1.3.0.CR9无效，这儿用的是2.0.6.Final版本
  */
 public class Server {
 
@@ -35,10 +36,6 @@ public class Server {
                                                 MarshallingCodeCFactory.marshallingEncoder(),
                                                 new ServerHandler()};
                         ch.pipeline().addLast(arr);
-
-//                        ch.pipeline().addLast(MarshallingCodeCFactory.marshallingDecoder());
-//                        ch.pipeline().addLast(MarshallingCodeCFactory.marshallingEncoder());
-//                        ch.pipeline().addLast(new ServerHandler());
                     }
                 });
 
