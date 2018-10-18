@@ -5,3 +5,4 @@ Netty的Ractor模型
 
 为什么java序列化后码流很大而protobuff比较下小
  java中int栈4个字节，java自带的序列化工具对int=1也占4个字节，其余的会根据具体的长度做序列化
+ java定时任务  Timer 、线程池
