@@ -12,6 +12,7 @@ import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioServerSocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.codec.DelimiterBasedFrameDecoder;
+import io.netty.handler.codec.string.StringDecoder;
 import org.junit.Test;
 
 /**
@@ -48,7 +49,18 @@ public class Netty02 {
                 .childHandler(new ChannelInitializer<SocketChannel>(){
                     @Override
                     protected void initChannel(SocketChannel socketChannel) throws Exception {
-                        //以$$_$$为分隔符
+                        /**
+                         * 创建以$$_$$为分隔符缓冲对象,然后创建分隔符Handler，第一个参数与是消息的最大长度，
+                         * 如果某个消息超过最大长度还没有出现分隔符则抛出TooLongException
+                         * 这是Netty解码器的可靠性保障，防止异常码流由于缺失分隔符导致的内存溢出
+                         * 当然在发送消息发的时候也要以$$_$$结尾
+                         *
+                         * StringDecoder的作用就是把接收到的码流转换为字符串
+                         * DelimiterBasedFrameDecoder + StringDecoder的作用是
+                         * 先把接受到的码流按照$$_$$为分隔符分割，然后把分割后的码流转换为字符串
+                         * 需要注意的是在新版本的Netty中应该是自动在DelimiterBasedFrameDecoder中就已经默认数据为字符串
+                         * 显式的加上 StringDecoder反而会出错
+                         */
                         ByteBuf delimiter = Unpooled.copiedBuffer("$$_$$".getBytes("UTF-8"));
                         socketChannel.pipeline().addLast(new DelimiterBasedFrameDecoder(1024,delimiter));
                         socketChannel.pipeline().addLast(new ServerHandler());
