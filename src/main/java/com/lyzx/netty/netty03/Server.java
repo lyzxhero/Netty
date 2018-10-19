@@ -48,6 +48,11 @@ public class Server {
                 .childHandler(new ChannelInitializer<SocketChannel>(){
                     @Override
                     protected void initChannel(SocketChannel ch) throws Exception {
+                        /**
+                         * 定长解码器
+                         * 无论发送的消息多长，都要会按照FixedLengthFrameDecoder中的构造函数的参数拆分
+                         * 如果读到的是半包，那么Netty会缓存下来，等代另外的半包到来，直到读完整个包
+                         */
                         ChannelHandler[] arr = {new FixedLengthFrameDecoder(64),new ServerHandler()};
                         ch.pipeline().addLast(arr);
                     }
