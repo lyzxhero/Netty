@@ -10,7 +10,6 @@ import io.netty.handler.codec.http.HttpRequestDecoder;
 import io.netty.handler.codec.http.HttpResponseEncoder;
 import io.netty.handler.logging.LogLevel;
 import io.netty.handler.logging.LoggingHandler;
-import io.netty.handler.stream.ChunkedWriteHandler;
 
 /**
  * @author hero.li
@@ -37,18 +36,19 @@ public class Server {
                                 /**
                                  * 添加一系列编解码器
                                  * HttpRequestDecoder     ===> 对从客户端发来的请求解码
+                                 * HttpResponseEncoder    ===> 对响应消息做编码
                                  * HttpObjectAggregator   ===> 将多个消息转换为单一的FullHttpRequest/FullHttpResponse 原因是Http解码器会在每个Http消息中生成多个消息对象
                                  *              HttpRequest/HttpResponse
                                  *              HttpContent
                                  *              LastHttpContent
-                                 * HttpResponseEncoder    ===> 对响应消息做编码
-                                 * ChunkedWriteHandler    ===> 用于异步发送大的码流但不占用过多的内存，防止jvm内存溢出
+                                 * ChunkedWriteHandler    ===> 用于异步发送大的码流但不占用过多的内存,防止jvm内存溢出
+                                 *                              说白了就是通过把一个请求拆分为多个请求来实现
                                  */
                                 ch.pipeline()
                                       .addLast("httpRequestDecoder",new HttpRequestDecoder())
-                                      .addLast("httpObjectAggregator",new HttpObjectAggregator(65536))
                                       .addLast("httpResponseEncoder",new HttpResponseEncoder())
-                                      .addLast("chunkedWriteHandler",new ChunkedWriteHandler())
+                                      .addLast("httpObjectAggregator",new HttpObjectAggregator(65536))
+//                                      .addLast("chunkedWriteHandler",new ChunkedWriteHandler())
                                       .addLast("serverHandler",new HttpServerHandler())
                                                 ;
                         }

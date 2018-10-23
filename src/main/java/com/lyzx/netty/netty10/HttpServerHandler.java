@@ -26,6 +26,7 @@ public class HttpServerHandler extends SimpleChannelInboundHandler<FullHttpReque
 
     @Override
     public void channelRead0(ChannelHandlerContext ctx,FullHttpRequest request) throws Exception {
+        System.out.println("=============="+request.getClass().getName());
         // 首先检查解码是否成功，如果失败则返回错误页面
         if (!request.decoderResult().isSuccess()){
             sendError(ctx,HttpResponseStatus.BAD_REQUEST);
