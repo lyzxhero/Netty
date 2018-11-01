@@ -4,35 +4,42 @@ import io.netty.buffer.ByteBuf;
 import io.netty.buffer.Unpooled;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
+import io.netty.handler.codec.http.*;
 
+import java.nio.charset.StandardCharsets;
 import java.util.Arrays;
+import java.util.concurrent.TimeUnit;
 
 public class HttpClientHandler extends ChannelInboundHandlerAdapter {
+    private String host ;
+    public HttpClientHandler(String host){
+        this.host = host;
+    }
+
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         System.out.println("client:channelActive____通道激活开始");
-        for(int i=0;i<20;i++){
-            char[] charArr = new char[64];
-            Arrays.fill(charArr,' ');
-            String req = "request0000000000_"+i;
-            for(int j=0,count=req.length();j<count;j++){
-                charArr[j] = req.charAt(j);
-            }
-            String reqInfo = new String(charArr);
-            System.out.println("client:====================="+reqInfo+"    "+reqInfo.length());
-            ctx.channel().writeAndFlush(Unpooled.copiedBuffer(reqInfo.getBytes()));
+        for(int i=1;i<=100;i++){
+            FullHttpRequest request = new DefaultFullHttpRequest(HttpVersion.HTTP_1_1,HttpMethod.POST,host);
+            request.headers().set(HttpHeaderNames.HOST,host);
+            request.headers().add(HttpHeaderNames.CONTENT_TYPE, "application/json");
+            String message = "{\"k1\":\"来自客户端的访问:\""+i+"}";
+            ByteBuf bbuf = Unpooled.copiedBuffer(message,StandardCharsets.UTF_8);
+            request.headers().set(HttpHeaderNames.CONTENT_LENGTH,bbuf.readableBytes());
+            request.content().clear().writeBytes(bbuf);
+            ctx.writeAndFlush(request);
+            TimeUnit.MILLISECONDS.sleep(10);
         }
         System.out.println("client:channelActive____通道激活结束");
     }
 
     @Override
     public void channelRead(ChannelHandlerContext ctx,Object msg) throws Exception {
-        System.out.println("client____:通道可读开始");
-        ByteBuf buff = (ByteBuf)msg;
+        FullHttpResponse r = (FullHttpResponse)msg;
+        ByteBuf buff = r.content();
         byte[] bytes = new byte[buff.readableBytes()];
         buff.readBytes(bytes);
-        System.out.println("client____response time:"+new String(bytes).trim());
-        System.out.println("client____:通道可读结束");
+        System.out.println("来自服务端的响应:"+new String(bytes).trim());
     }
 
     /**
@@ -43,24 +50,14 @@ public class HttpClientHandler extends ChannelInboundHandlerAdapter {
     @Override
     public void channelReadComplete(ChannelHandlerContext ctx) throws Exception {
         System.out.println("client:通道可读完成");
-//        ctx.channel().close();
-//        ctx.close();
+        ctx.channel().closeFuture();
+        ctx.close();
     }
 
     @Override
-    public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-        System.out.println("client:发生异常");
+    public void exceptionCaught(ChannelHandlerContext ctx, Throwable e) throws Exception {
+        System.err.println("client:发生异常");
+        e.printStackTrace();
     }
 
-
-//    public static void main(String[] args) {
-//        char[] arr = new char[128];
-//        Arrays.fill(arr,' ');
-//        arr[0]='1';
-//        arr[1]='2';
-//        arr[2]='3';
-//        arr[3]='4';
-//
-//        System.out.println(new String(arr)+"  |");
-//    }
 }
